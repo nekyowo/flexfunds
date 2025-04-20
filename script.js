@@ -39,23 +39,6 @@ function attemptAutoplay() {
   bgMusic.volume = 0.3; // Set volume to 30%
   const playPromise = bgMusic.play();
   
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      musicButton.textContent = 'Play Music (Autoplay blocked)';
-    });
-  }
-}
-
-// Toggle music on button click
-musicButton.addEventListener('click', () => {
-  if (bgMusic.paused) {
-    bgMusic.play();
-    musicButton.textContent = 'Pause Music';
-  } else {
-    bgMusic.pause();
-    musicButton.textContent = 'Play Music';
-  }
-});
 
 // Attempt autoplay after user interaction
 document.addEventListener('click', () => {
