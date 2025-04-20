@@ -376,3 +376,22 @@ footer {
 #bgMusic {
     display: none; /* Hide the audio element */
   }
+
+  /* Music Controls */
+#musicControls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #musicControls.hidden {
+    display: none;
+  }
+  
+  #volumeControl {
+    width: 80px;
+  }

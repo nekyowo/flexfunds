@@ -22,6 +22,49 @@ document.addEventListener('DOMContentLoaded', function() {
         toastTimeout = setTimeout(() => {
             toast.classList.remove('show');
         }, 3000);
+        // ======================
+// Background Music System
+// ======================
+const bgMusic = document.getElementById('bgMusic');
+const musicButton = document.createElement('button');
+musicButton.className = 'ghost-button small';
+musicButton.style.position = 'fixed';
+musicButton.style.bottom = '20px';
+musicButton.style.left = '20px';
+musicButton.style.zIndex = '1000';
+document.body.appendChild(musicButton);
+
+// Try to autoplay (may be blocked by browser policies)
+function attemptAutoplay() {
+  bgMusic.volume = 0.3; // Set volume to 30%
+  const playPromise = bgMusic.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      musicButton.textContent = 'Play Music (Autoplay blocked)';
+    });
+  }
+}
+
+// Toggle music on button click
+musicButton.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicButton.textContent = 'Pause Music';
+  } else {
+    bgMusic.pause();
+    musicButton.textContent = 'Play Music';
+  }
+});
+
+// Attempt autoplay after user interaction
+document.addEventListener('click', () => {
+  attemptAutoplay();
+  document.removeEventListener('click', attemptAutoplay);
+}, { once: true });
+
+// Initial attempt (will likely fail due to browser policies)
+attemptAutoplay();
     }
 
     // ======================
@@ -186,48 +229,3 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     // ... your existing login code ...
     detectSystem(); // Add this line
 });
-
-// ======================
-// Background Music System
-// ======================
-const bgMusic = document.getElementById('bgMusic');
-const musicButton = document.createElement('button');
-musicButton.textContent = 'Toggle Music';
-musicButton.className = 'ghost-button small';
-musicButton.style.position = 'fixed';
-musicButton.style.bottom = '20px';
-musicButton.style.left = '20px';
-musicButton.style.zIndex = '1000';
-document.body.appendChild(musicButton);
-
-// Try to autoplay (may be blocked by browser policies)
-function attemptAutoplay() {
-  bgMusic.volume = 0.3; // Set volume to 30%
-  const playPromise = bgMusic.play();
-  
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      musicButton.textContent = 'Play Music (Autoplay blocked)';
-    });
-  }
-}
-
-// Toggle music on button click
-musicButton.addEventListener('click', () => {
-  if (bgMusic.paused) {
-    bgMusic.play();
-    musicButton.textContent = 'Pause Music';
-  } else {
-    bgMusic.pause();
-    musicButton.textContent = 'Play Music';
-  }
-});
-
-// Attempt autoplay after user interaction
-document.addEventListener('click', () => {
-  attemptAutoplay();
-  document.removeEventListener('click', attemptAutoplay);
-}, { once: true });
-
-// Initial attempt (will likely fail due to browser policies)
-attemptAutoplay();
