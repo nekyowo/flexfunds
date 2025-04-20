@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexfunds.vip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>flexfunds<span class="accent">.vip</span></h1>
+            <nav>
+                <a href="#" class="nav-link active" data-section="about">/about</a>
+                <a href="#" class="nav-link" data-section="music">/music</a>
+                <a href="#" class="nav-link" data-section="cs">/cs2</a>
+                <a href="#" class="nav-link" data-section="login">/login</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Public Sections -->
+            <section id="about" class="content-section active">
+                <h2>> about_me</h2>
+                <div class="bio-card">
+                    <p>17 y/o developer, musician, and [professional] CS2 griefer.</p>
+                    <p>Your reports fuel me.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-value">5+</span>
+                            <span class="stat-label">years coding</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">∞</span>
+                            <span class="stat-label">confidence</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="music" class="content-section">
+                <h2>> music_projects</h2>
+                <div class="project-card">
+                    <p>Sometimes I make music when I'm not ruining the experience for legits in CS2</p>
+                    <p>Mostly supertrap beats</p>
+                </div>
+            </section>
+
+            <section id="cs" class="content-section">
+                <h2>> cs2_activity</h2>
+                <div class="game-card">
+                    <p>Griefing specialist</p>
+                    <p>Creating configs for your enjoyment</p>
+                    <p>Software used:</p>
+                    <p>/lambdasec.vip/</p>
+                    <p>/Iniuria/</p>
+                    <p>/GameSense/</p>
+                    <p>/kamidere/</p>
+                </div>
+            </section>
+
+            <!-- Login Section -->
+            <section id="login" class="content-section">
+                <div class="auth-box">
+                    <h2>> vip_access</h2>
+                    <form id="loginForm">
+                        <input type="password" id="password" placeholder="enter key" required>
+                        <button type="submit">authenticate</button>
+                    </form>
+                    <div class="status">
+                        <div class="status-indicator"></div>
+                        <span>system_ready</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Private Content (Hidden Initially) -->
+            <section id="vip" class="content-section hidden">
+                <div class="vip-header">
+                    <h2>> vip_portal</h2>
+                    <button id="logoutBtn" class="ghost-button small">logout</button>
+                </div>
+                <div class="vip-grid">
+                    <div class="vip-card">
+                        <h3>configs</h3>
+                        <p>v3.1.7 | undetected</p>
+                        <button class="download-btn">download</button>
+                        <div class="hash">sha256: a1b2c3...f4e5d6</div>
+                    </div>
+                    <div class="vip-card">
+                        <h3>configs</h3>
+                        <ul class="config-list">
+                            <li>nekyov2.cfg</li>
+                            <li>semirage.cfg</li>
+                            <li>griefing.cfg</li>
+                        </ul>
+                    </div>
+                    <div class="vip-card">
+                        <h3>private_discord</h3>
+                        <p>24/7 support and updates</p>
+                        <button class="ghost-button">connect</button>
+                    </div>
+                </div>
+                <div class="vip-card">
+                    <h3>system_info</h3>
+                    <div class="tool-grid">
+                        <div class="tool">
+                            <p class="tool-label">Browser</p>
+                            <div class="tool-output" id="browserData">-</div>
+                        </div>
+                        <div class="tool">
+                            <p class="tool-label">OS</p>
+                            <div class="tool-output" id="osData">-</div>
+                        </div>
+                        <div class="tool">
+                            <p class="tool-label">Screen</p>
+                            <div class="tool-output" id="screenData">-</div>
+                        </div>
+                        <div class="tool">
+                            <p class="tool-label">Online Status</p>
+                            <div class="tool-output" id="onlineData">-</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 flexfunds.vip | no warranties </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <div id="toast" class="toast hidden">
+        <div class="toast-content"></div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+</body>
+</html>
